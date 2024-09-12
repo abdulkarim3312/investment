@@ -43,6 +43,9 @@ Route::group(['middleware' => 'admin'], function(){
     Route::get('faqs', [FaqController::class, 'faqHeaderAdd'])->name('faq_add');
     Route::post('faqs-store', [FaqController::class, 'faqHeaderUpdate'])->name('faq_update');
 
+    Route::get('/contact/list', [DashboardController::class, 'contactList'])->name('contact_list');
+    Route::get('/contact/details/{id}', [DashboardController::class, 'contactDetails'])->name('contact_details');
+
     Route::resource('services', ServiceController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('team', TeamController::class);

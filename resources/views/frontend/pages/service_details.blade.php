@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-    About Us
+    Service Details
 @endsection
 
 @section('styles')
@@ -39,12 +39,13 @@
                         <div class="widget-content">
                             <h6 class="sidebar-title">Services</h6>
                             <ul class="service-list">
-                                <li class="active"><a href="#">Investment Consulting</a></li>
-                                <li><a href="#">Risk Management</a></li>
-                                <li><a href="#">Advisory investment</a></li>
-                                <li><a href="#">Financial intermediary</a></li>
-                                <li><a href="#">Digital Marketing</a></li>
-                                <li><a href="#">Policy Statements</a></li>
+                                @foreach ($services as  $key => $service)
+                                    @if($key == 0)
+                                        <li class="active"><a href="{{ route('service_details',$service->slug) }}">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
+                                    @else
+                                        <li><a href="{{ route('service_details',$service->slug) }}">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -67,7 +68,7 @@
                             <h4 class="support-widget_title">Growing with Smart Ideas</h4>
                             <div class="support-widget_text">Contact an expert Advanced Business analytics</div>
                             <div class="support-widget_button">
-                                <a href="#" class="theme-btn">Quick Support</a>
+                                <a href="{{ route('contact_page') }}" class="theme-btn">Quick Support</a>
                             </div>
                         </div>
                     </div>
@@ -80,44 +81,16 @@
                 <div class="service-detail">
                     <div class="inner-box">
                         <div class="service-detail_main-image">
-                            <img src="assets/images/resource/services.jpg" alt="" />
+                            <img src="{{ isset($serviceItem->image) ? asset('upload/service_image/'. $serviceItem->image) : null }}" alt="" />
                         </div>
-                        <h2 class="service-detail_title">Investment Consulting</h2>
-                        <p>Financial management is crucial to business success, but not everyone knows where to start or how to proceed. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. </p>
+                        <h3 class="service-detail_title">{{ $serviceItem->title ?? '' }}</h3>
+                        <h5>{{ $serviceItem->short_description ?? '' }}</h5>
                         <div class="row clearfix">
-                            <!-- Column -->
-                            <div class="column col-lg-6 col-md-6 col-sm-12">
-                                <h3 class="service-detail_subtitle">We Know the Markets</h3>
-                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered on alteration in some form strategy & planning</p>
-                                <div class="service-detail_steps">
-                                    <!-- Step Block One -->
-                                    <div class="step-block_one">
-                                        <div class="step-block_one-inner">
-                                            <div class="step-block_one-number">01</div>
-                                            <h6 class="step-block_one-title">Policy Statements</h6>
-                                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>
-                                        </div>
-                                    </div>
-                                    <!-- Step Block One -->
-                                    <div class="step-block_one">
-                                        <div class="step-block_one-inner">
-                                            <div class="step-block_one-number">02</div>
-                                            <h6 class="step-block_one-title">Market Fund Reserch</h6>
-                                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Column -->
-                            <div class="column col-lg-6 col-md-6 col-sm-12">
-                                <div class="service-detail_image-two">
-                                    <img src="assets/images/resource/services-1.jpg" alt="" />
-                                </div>
-                            </div>
+                            {!! $serviceItem->description ?? '' !!}
                         </div>
 
                         <!-- Content -->
-                        <div class="service-detail_content">
+                        {{-- <div class="service-detail_content">
                             <div class="row clearfix">
                                 <!-- Column -->
                                 <div class="column col-lg-7 col-md-6 col-sm-12">
@@ -138,7 +111,7 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- End Content -->
 
                         <div class="service-detail_ratio-outer">
@@ -200,7 +173,4 @@
 @endsection
 
 @section('scripts')
-{{-- <script>
-$(document).ready((function(){$(".homeSlider").slick({autoplay:!0,autoplaySpeed:1e3,dots:!0,infinite:!0,speed:1200,slidesToShow:1,slidesToScroll:1,prevArrow:!1,nextArrow:!1})})),$(document).ready((function(){$(".productSlider").slick({autoplay:!0,autoplaySpeed:1e3,dots:!0,infinite:!0,speed:600,slidesToShow:4,slidesToScroll:1,prevArrow:!1,nextArrow:!1,responsive:[{breakpoint:1024,settings:{slidesToShow:3,slidesToScroll:3,infinite:!0,dots:!0}},{breakpoint:600,settings:{slidesToShow:2,slidesToScroll:2}},{breakpoint:480,settings:{slidesToShow:1,slidesToScroll:1}}]})}));
-</script> --}}
 @endsection

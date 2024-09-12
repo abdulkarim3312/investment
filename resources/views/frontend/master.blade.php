@@ -33,7 +33,7 @@
 	<div class="cursor-follower"></div>
 	<!-- Cursor End -->
 
-	@include('frontend.partials.header')
+	@include('frontend.partials.navbar')
 
 	@yield('content')
 

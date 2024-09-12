@@ -4,6 +4,7 @@ namespace App\Http\Controllers\backend;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -55,5 +56,14 @@ class DashboardController extends Controller
         } else {
             return response()->json(['success' => false, 'message' => 'Old Password is incorrect !!'], 200);
         }
+    }
+
+    public function contactList(){
+        $contactList = ContactUs::latest()->get();
+        return view('backend.dashboard.contact_list.index', compact('contactList'));
+    }
+    public function contactDetails($id){
+        $contactDetails = ContactUs::find($id);
+        return view('backend.dashboard.contact_list.show', compact('contactDetails'));
     }
 }

@@ -37,10 +37,9 @@
                                 <div class="footer-widget links-widget">
                                     <h5 class="footer-title">Links</h5>
                                     <ul class="footer-list">
-                                        <li><a href="#">Pricing Plan</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Strategy</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="{{ route('about_page') }}">About us</a></li>
+                                        <li><a href="{{ route('service_page') }}">Service</a></li>
+                                        <li><a href="{{ route('blog_page') }}">Blog</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -57,12 +56,9 @@
                                 <div class="footer-widget links-widget">
                                     <h5 class="footer-title">Company</h5>
                                     <ul class="footer-list">
-                                        <li><a href="#">Faq’s</a></li>
-                                        <li><a href="#">Meet our team</a></li>
-                                        <li><a href="#">Case stories</a></li>
-                                        <li><a href="#">Latest news</a></li>
-                                        <li><a href="#">Contact</a></li>
-                                        <li><a href="#">Careers</a></li>
+                                        <li><a href="{{ route('home') }}">Faq’s</a></li>
+                                        <li><a href="{{ route('about_page') }}">Meet our team</a></li>
+                                        <li><a href="{{ route('contact_page') }}">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>

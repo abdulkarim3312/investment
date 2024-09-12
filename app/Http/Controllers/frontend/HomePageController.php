@@ -16,11 +16,17 @@ class HomePageController extends Controller
         $aboutUs = DB::table('about_us')->first();
         $faqHeader = DB::table('faq_header_sections')->first();
         $faqs = DB::table('faqs')->get();
-        return view('frontend.pages.homepage', compact('sliderTitle','services','aboutUs','faqHeader','faqs'));
+        $blogs = DB::table('blogs')->select('blogs.*', 'users.name as user_name')
+                ->join('users', 'blogs.user_id', '=', 'users.id')
+                ->where('status', 1)
+                ->take(3)
+                ->get();
+        return view('frontend.pages.homepage', compact('sliderTitle','services','aboutUs','faqHeader','faqs','blogs'));
     }
     public function aboutUs() {
         $teams = DB::table('teams')->get();
-        return view('frontend.pages.about_us', compact('teams'));
+        $aboutUs = DB::table('about_us')->first();
+        return view('frontend.pages.about_us', compact('teams','aboutUs'));
     }
 
     public function contact() {
@@ -32,9 +38,10 @@ class HomePageController extends Controller
         return view('frontend.pages.service', compact('services'));
     }
 
-    public function serviceDetailsPage() {
+    public function serviceDetailsPage($slug) {
+        $serviceItem = DB::table('services')->where('slug', $slug)->first();
         $services = DB::table('services')->get();
-        return view('frontend.pages.service_details', compact('services'));
+        return view('frontend.pages.service_details', compact('services','serviceItem'));
     }
 
     public function projectPage() {

@@ -1,4 +1,3 @@
-<!-- Main Header -->
 <header class="main-header header-style-one">
     <!-- Header Top -->
     <div class="header-top">
@@ -35,7 +34,8 @@
                     <div class="nav-outer d-flex align-items-center flex-wrap">
                         <!-- Logo Box -->
                         <div class="logo-box">
-                            <div class="logo"><a href="{{ route('home') }}"><img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="" title=""></a></div>
+                            <div class="logo"><a href="{{ route('home') }}"><img src="{{ $site_logo }}" alt="" title=""></a></div>
+                            {{-- <div class="logo"><a href="{{ route('home') }}"><img src="{{ (!empty($setting->site_logo))? url('upload/site_logo/'.$setting->site_logo): '' }}" alt="" title=""></a></div> --}}
                         </div>
 
                         <!-- Main Menu -->
@@ -71,7 +71,7 @@
 
                         <!-- Button Box -->
                         <div class="header_button-box">
-                            <a href="register.html" class="theme-btn btn-style-one">
+                            <a href="{{ route('contact_page') }}" class="theme-btn btn-style-one">
                                 <span class="btn-wrap">
                                     <span class="text-one">Get Consult</span>
                                     <span class="text-two">Get Consult</span>
