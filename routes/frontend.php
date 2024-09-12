@@ -16,8 +16,3 @@ Route::get('/blogs', [HomePageController::class,'blogPage'])->name('blog_page');
 Route::get('/blog/details/{slug}', [HomePageController::class,'blogDetailsPage'])->name('blog_details');
 Route::get('/contact', [HomePageController::class,'contact'])->name('contact_page');
 Route::post('/contact-form', [HomePageController::class,'contactStore'])->name('contact_form_store');
-
-Route::controller(product::class)->group(function(){
-    Route::get('/product/{id}', 'productView')->name('productView');
-    Route::post('/searchProduct', 'searchProduct')->name('searchProduct');
-});
