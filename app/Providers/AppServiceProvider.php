@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::composer('frontend.*', SettingController::class);
-        View::composer('auth.*', SettingController::class);
+        View::composer('admin.*', SettingController::class);
     }
 }

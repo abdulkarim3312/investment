@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-    About Us
+    Blog
 @endsection
 
 @section('styles')

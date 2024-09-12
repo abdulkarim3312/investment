@@ -1,7 +1,7 @@
 @extends('frontend.master')
 
 @section('title')
-    About Us
+    Blog Details
 @endsection
 
 @section('styles')
@@ -81,9 +81,9 @@
                                 <ul class="service-list">
                                     @foreach ($services as  $key => $service)
                                         @if($key == 0)
-                                            <li class="active"><a href="#">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
+                                            <li class="active"><a href="{{ route('service_details',$service->slug) }}">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
                                         @else
-                                            <li><a href="#">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
+                                            <li><a href="{{ route('service_details',$service->slug) }}">{{ $service->title ?? ''  }}<span>0{{ $loop->iteration }}</span></a></li>
                                         @endif
                                     @endforeach
                                 </ul>

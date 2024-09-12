@@ -69,7 +69,7 @@
                                 <div class="slider-one_options d-flex align-items-center flex-wrap">
                                     <!-- Button Box -->
                                     <div class="slider_button-box">
-                                        <a href="contact.html" class="theme-btn btn-style-two">
+                                        <a href="{{ route('contact_page') }}" class="theme-btn btn-style-two">
                                             <span class="btn-wrap">
                                                 <span class="text-one">Discover More</span>
                                                 <span class="text-two">Discover More</span>
@@ -113,7 +113,7 @@
                                 <div class="slider-one_options d-flex align-items-center flex-wrap">
                                     <!-- Button Box -->
                                     <div class="slider_button-box">
-                                        <a href="contact.html" class="theme-btn btn-style-two">
+                                        <a href="{{ route('contact_page') }}" class="theme-btn btn-style-two">
                                             <span class="btn-wrap">
                                                 <span class="text-one">Discover More</span>
                                                 <span class="text-two">Discover More</span>
@@ -168,7 +168,7 @@
                             <h4 class="service-block_one-heading"><a href="service-detail.html">{{ $service->title ?? '' }}</a></h4>
                             <div class="service-block_one-text">{{ $service->short_description ?? '' }}</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <a class="service-block_one-more" href="service-detail.html">Explore more <i class="flaticon-arrow"></i></a>
+                                <a class="service-block_one-more" href="{{ route('service_details', $service->slug) }}">Explore more <i class="flaticon-arrow"></i></a>
                                 <div class="service-block_one-number">0{{ $loop->iteration }}</div>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
 
                     <!-- Button Box -->
                     <div class="about-one_button">
-                        <a href="contact.html" class="theme-btn btn-style-one">
+                        <a href="{{ route('contact_page') }}" class="theme-btn btn-style-one">
                             <span class="btn-wrap">
                                 <span class="text-one">About agency</span>
                                 <span class="text-two">About agency</span>
@@ -311,56 +311,15 @@
                     <ul class="accordion-box">
 
                         @foreach ($faqs as $faq)
-                            <li class="accordion block active-block">
-                                <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>{{ $faq->question ?? ''}}</div>
-                                <div class="acc-content current">
+                            <li class="accordion block">
+                                <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>{{ $faq->question ?? ''}}</div>
+                                <div class="acc-content">
                                     <div class="content">
                                         <div class="text">{{ $faq->answer ?? ''}}</div>
                                     </div>
                                 </div>
                             </li>
                         @endforeach
-
-                        <!-- Block -->
-                        <li class="accordion block">
-                            <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>What are the challenges of Financial Inclusion?</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Block -->
-                        <li class="accordion block">
-                            <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>What is investment planning?</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Block -->
-                        <li class="accordion block">
-                            <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>Who can I talk to with questions about my bill?</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Block -->
-                        <li class="accordion block">
-                            <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-plus"></span> <span class="icon icon-minus fa fa-minus"></span></div>How can I pay my portion of my bill?</div>
-                            <div class="acc-content">
-                                <div class="content">
-                                    <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div>
-                                </div>
-                            </div>
-                        </li>
-
                     </ul>
 
                 </div>
@@ -372,78 +331,40 @@
 <!-- End Faq One -->
 
 <!-- News One -->
-<section class="news-one">
+<section class="news-three">
+    <div class="news-three_icons" style="background-image:url({{ asset('frontend/assets/images/background/news-three_icons.png') }})"></div>
     <div class="auto-container">
-        <!-- Sec Title -->
         <div class="sec-title centered">
             <div class="sec-title_title">Our Blog update</div>
             <h2 class="sec-title_heading">Latest Updates To <br> Our Insight Stories</h2>
         </div>
+        <div class="row clearfix">
 
-        <div class="two-item_carousel swiper-container">
-            <div class="swiper-wrapper">
-
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <!-- News Block One -->
-                    <div class="news-block_one">
-                        <div class="news-block_one-inner">
+            <!-- News Block One -->
+            @if ($blogs)
+                @foreach ($blogs as $blog)
+                    <div class="news-block_two col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                        <div class="news-block_two-inner">
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <ul class="news-block_one-meta">
-                                    <li><a href="#">15 Nov 2024</a></li>
-                                    <li><a href="#">Finance</a></li>
+                                <ul class="news-block_two-meta">
+                                    <li><a href="#">{{ \Carbon\Carbon::parse($blog ? $blog->updated_at: '')->format('d F Y')}}</a></li>
                                 </ul>
-                                <div class="news-block_one-share">
+                                <div class="news-block_two-share">
                                     <i class="flaticon-share-2"></i>
                                 </div>
                             </div>
-                            <h4 class="news-block_one-heading"><a href="news-detail.html">Contingent Convertible Bonds Since the Recent Banking Crisis</a></h4>
-                            <div class="news-block_one-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui dolor sit amet consect </div>
+                            <h4 class="news-block_two-heading"><a href="news-detail.html">{{ $blog->title ?? '' }}</a></h4>
+                            <div class="news-block_two-text">{{ $blog->short_description ?? '' }}</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <a class="news-block_one-more" href="news-detail.html"><span>more</span><i class="flaticon-arrow"></i></a>
-                                <div class="news-block_one-author">
-                                    <div class="news-block_one-author_image">
-                                        <img src="{{ asset('frontend/assets/images/resource/author-3.png') }}" alt="" />
-                                    </div>
-                                    <span>Post By</span>
-                                    Rashed Kobir
-                                </div>
+                                <span>Post By:</span>
+                                    <b>{{ $blog->user_name ?? '' }}</b>
+
+                                <a class="news-block_two-more" href="{{ route('blog_details', $blog->slug) }}"><span>more</span><i class="flaticon-arrow"></i></a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Slide -->
-                <div class="swiper-slide">
-                    <!-- News Block One -->
-                    <div class="news-block_one">
-                        <div class="news-block_one-inner">
-                            <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <ul class="news-block_one-meta">
-                                    <li><a href="#">15 Nov 2024</a></li>
-                                    <li><a href="#">Finance</a></li>
-                                </ul>
-                                <div class="news-block_one-share">
-                                    <i class="flaticon-share-2"></i>
-                                </div>
-                            </div>
-                            <h4 class="news-block_one-heading"><a href="news-detail.html">Core Fixed Income Investing in a Challenging Bond Market</a></h4>
-                            <div class="news-block_one-text">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui dolor sit amet consect </div>
-                            <div class="d-flex justify-content-between align-items-center flex-wrap">
-                                <a class="news-block_one-more" href="news-detail.html"><span>more</span><i class="flaticon-arrow"></i></a>
-                                <div class="news-block_one-author">
-                                    <div class="news-block_one-author_image">
-                                        <img src="{{ asset('frontend/assets/images/resource/author-3.png') }}" alt="" />
-                                    </div>
-                                    <span>Post By</span>
-                                    Rashed Kobir
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                @endforeach
+            @endif
         </div>
     </div>
 </section>

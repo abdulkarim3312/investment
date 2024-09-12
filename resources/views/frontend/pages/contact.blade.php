@@ -1,11 +1,11 @@
 @extends('frontend.master')
 
 @section('title')
-    About Us
+    Contact Us
 @endsection
 
 @section('styles')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 
     </style>
@@ -221,9 +221,9 @@
                 }
             },
             error: function(response){
-                $('#name-input-error').text(response.responseJSON.message);
-                $('#email-input-error').text(response.responseJSON.message);
-                $('#message-input-error').text(response.responseJSON.message);
+                $('#name-input-error').text(response.responseJSON.errors.name);
+                $('#email-input-error').text(response.responseJSON.errors.email);
+                $('#message-input-error').text(response.responseJSON.errors.message);
             }
        });
     });

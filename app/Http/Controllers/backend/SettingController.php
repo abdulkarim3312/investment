@@ -76,7 +76,7 @@ class SettingController extends Controller
     public function compose(View $view)
     {
         $setting = Setting::first();
-        $view->with('site_logo', ($setting && $setting->site_logo ? asset('upload/site_logo/'.$setting->site_logo) : asset('wb.png')));
+        $view->with('site_logo', ($setting && $setting->site_logo ? asset('upload/site_logo/'.$setting->site_logo) : asset('logo.svg')));
     }
 
 }

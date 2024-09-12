@@ -10,14 +10,14 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   @include('backend.layouts.partials.styles')
   <style>
-     /* body{*/
-     /*  background: #28104e !important;*/
-     /*}*/
+    body{
+       background: #84b3a6 !important;*/
+     }
   </style>
   @yield('styles')
 </head>
 {{-- bg-gray-100 --}}
-<body class="g-sidenav-show bg-gray-100">
+<body class="g-sidenav-show">
     @include('backend.layouts.partials.sidebar')
   <main class="main-content position-relative max-height-vh-100 h-100 mt-1 border-radius-lg ">
     <!-- Navbar -->
