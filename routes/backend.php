@@ -52,26 +52,3 @@ Route::group(['middleware' => 'admin'], function(){
     Route::resource('blog', BlogController::class);
 
 });
-
-
-
-// Route::controller(DashboardController::class)->group(function(){
-//     Route::get('/dashboard', 'dashboard')->name('dashboard');
-// });
-
-Route::controller(slider::class)->group(function(){
-    Route::get('/manageSlider', 'manageSlider')->name('manageSlider');
-    Route::get('/addSlider', 'addSlider')->name('addSlider');
-    Route::post('/uploadSlide', 'uploadSlide')->name('uploadSlide');
-    Route::get('/deleteSlider/{id}', 'deleteSlider')->name('deleteSlider');
-});
-
-
-Route::controller(product::class)->group(function(){
-    Route::get('/manageProducts', 'manageProducts')->name('manageProducts');
-    Route::get('/addProduct', 'addProduct')->name('addProduct');
-    Route::post('/uploadProduct', 'uploadProduct')->name('uploadProduct');
-    Route::get('/editProduct/{id}', 'editProduct')->name('editProduct');
-    Route::post('/updateProduct', 'updateProduct')->name('updateProduct');
-    Route::get('/deleteProduct/{id}', 'deleteProduct')->name('deleteProduct');
-});
