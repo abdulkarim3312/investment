@@ -1,4 +1,5 @@
 <header class="main-header header-style-one">
+
     <!-- Header Top -->
     <div class="header-top">
         <div class="auto-container">
@@ -35,7 +36,6 @@
                         <!-- Logo Box -->
                         <div class="logo-box">
                             <div class="logo"><a href="{{ route('home') }}"><img src="{{ $site_logo }}" alt="" title=""></a></div>
-                            {{-- <div class="logo"><a href="{{ route('home') }}"><img src="{{ (!empty($setting->site_logo))? url('upload/site_logo/'.$setting->site_logo): '' }}" alt="" title=""></a></div> --}}
                         </div>
 
                         <!-- Main Menu -->
@@ -49,7 +49,7 @@
                                 </button>
                             </div>
 
-                            <div class="navbar-collapse collapse clearfix" id="navbar">
+                            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
                                     <li><a href="{{ route('home') }}">Home</a>
                                     </li>
@@ -68,6 +68,8 @@
 
                     <!-- Main Menu End-->
                     <div class="outer-box d-flex align-items-center flex-wrap">
+
+                        <!-- Login Box -->
 
                         <!-- Button Box -->
                         <div class="header_button-box">
@@ -95,11 +97,10 @@
         <div class="close-btn"><span class="icon flaticon-close-1"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="{{ asset('frontend/assets/images/mobile-logo.png') }}" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="{{ route('home') }}"><img src="{{ $site_logo }}" alt="" title=""></a></div>
             <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
         </nav>
     </div>
     <!-- End Mobile Menu -->
 
 </header>
-<!-- End Main Header -->

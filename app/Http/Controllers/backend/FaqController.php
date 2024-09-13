@@ -86,7 +86,15 @@ class FaqController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $faq = Faq::find($id);
+        if (is_null($faq)) {
+            session()->flash('error', "The page is not found !");
+            return redirect()->route('faq_add');
+        }
+        $faq->delete();
+        session()->flash('success', 'Faq has been deleted successfully!!');
+        return redirect()->route('faq_add');
+
     }
 
     public function faqHeaderAdd(){
