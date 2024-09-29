@@ -79,9 +79,6 @@
                                     <option value="" selected>--Select Status--</option>
                                     <option value="1" @if(old('status',$blog->status) == 1) selected @endif> Active</option>
                                     <option value="0" @if(old('status',$blog->status) == 0) selected @endif> Inactive</option>
-                                    @error('')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
                                 </select>
                             </div>
                         </div>

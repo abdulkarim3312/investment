@@ -79,6 +79,19 @@
               Route::is('blog.show') ||
               Route::is('blog.update') ||
               Route::is('blog.destroy') ||
+              Route::is('agreement.index') ||
+              Route::is('agreement.create') ||
+              Route::is('agreement.store') ||
+              Route::is('agreement.edit') ||
+              Route::is('agreement.update') ||
+              Route::is('agreement.destroy') ||
+              Route::is('agreement-procedure.index') ||
+              Route::is('agreement-procedure.create') ||
+              Route::is('agreement-procedure.store') ||
+              Route::is('agreement-procedure.edit') ||
+              Route::is('agreement-procedure.update') ||
+              Route::is('agreement-procedure.show') ||
+              Route::is('agreement-procedure.destroy') ||
               Route::is('home_index')  ? 'active' : ''
               }}" aria-controls="pages" role="button" aria-expanded="false">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -123,6 +136,19 @@
               Route::is('blog.show') ||
               Route::is('blog.update') ||
               Route::is('blog.destroy') ||
+              Route::is('agreement.index') ||
+              Route::is('agreement.create') ||
+              Route::is('agreement.store') ||
+              Route::is('agreement.edit') ||
+              Route::is('agreement.update') ||
+              Route::is('agreement.destroy') ||
+              Route::is('agreement-procedure.index') ||
+              Route::is('agreement-procedure.create') ||
+              Route::is('agreement-procedure.store') ||
+              Route::is('agreement-procedure.edit') ||
+              Route::is('agreement-procedure.update') ||
+              Route::is('agreement-procedure.show') ||
+              Route::is('agreement-procedure.destroy') ||
               Route::is('home_index') ? 'show' : ''
             }}" id="pages" style="">
                 <ul class="nav ms-4 ps-3">
@@ -156,6 +182,26 @@
                         }}" href="{{ route('about_us') }}">
                           <span class="sidenav-mini-icon"> A </span>
                           <span class="sidenav-normal"> About Us </span>
+                      </a>
+                  </li>
+                  <li class="nav-item {{
+                    Route::is('agreement.index') ? 'active' : ''
+                    }}">
+                      <a class="nav-link {{
+                        Route::is('agreement.index') ? 'active' : ''
+                        }}" href="{{ route('agreement.index') }}">
+                          <span class="sidenav-mini-icon"> A </span>
+                          <span class="sidenav-normal">Agreement Type</span>
+                      </a>
+                  </li>
+                  <li class="nav-item {{
+                    Route::is('agreement-procedure.index') ? 'active' : ''
+                    }}">
+                      <a class="nav-link {{
+                        Route::is('agreement-procedure.index') ? 'active' : ''
+                        }}" href="{{ route('agreement-procedure.index') }}">
+                          <span class="sidenav-mini-icon"> A </span>
+                          <span class="sidenav-normal">Agreement Procedure</span>
                       </a>
                   </li>
                   <li class="nav-item {{

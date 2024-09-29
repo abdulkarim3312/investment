@@ -166,7 +166,7 @@
                                 <img src="{{ isset($service->icon_image) ? asset('upload/service_image/'.$service->icon_image) : null }}" alt="" />
                             </div>
                             <h4 class="service-block_one-heading"><a href="service-detail.html">{{ $service->title ?? '' }}</a></h4>
-                            <div class="service-block_one-text">{{ $service->short_description ?? '' }}</div>
+                            <div class="service-block_one-text">{{ Str::substr($service->short_description, 0, 130) }}...</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
                                 <a class="service-block_one-more" href="{{ route('service_details', $service->slug) }}">Explore more <i class="flaticon-arrow"></i></a>
                                 <div class="service-block_one-number">0{{ $loop->iteration }}</div>
@@ -354,7 +354,7 @@
                                 </div>
                             </div>
                             <h4 class="news-block_two-heading"><a href="news-detail.html">{{ $blog->title ?? '' }}</a></h4>
-                            <div class="news-block_two-text">{{ $blog->short_description ?? '' }}</div>
+                            <div class="news-block_two-text">{{ Str::substr($blog->short_description ?? '', 0, 135) }}...</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
                                 <span>Post By:</span>
                                     <b>{{ $blog->user_name ?? '' }}</b>

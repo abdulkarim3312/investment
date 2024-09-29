@@ -2,17 +2,19 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backend\slider;
+use App\Http\Controllers\backend\product;
+use App\Http\Controllers\backend\FaqController;
 use App\Http\Controllers\backend\AuthController;
 use App\Http\Controllers\backend\BlogController;
-use App\Http\Controllers\backend\DashboardController;
-use App\Http\Controllers\backend\FaqController;
 use App\Http\Controllers\backend\HomeController;
-use App\Http\Controllers\backend\SettingController;
-use App\Http\Controllers\backend\product;
-use App\Http\Controllers\backend\ServiceController;
-use App\Http\Controllers\backend\slider;
 use App\Http\Controllers\backend\TeamController;
 use App\Http\Controllers\backend\UserController;
+use App\Http\Controllers\backend\ServiceController;
+use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\AgreementTypeController;
+use App\Http\Controllers\backend\AgreementProcedureController;
 
 Route::controller(AuthController::class)->group(function(){
     Route::get('/admin', 'admin')->name('admin');
@@ -50,5 +52,7 @@ Route::group(['middleware' => 'admin'], function(){
     Route::resource('faq', FaqController::class);
     Route::resource('team', TeamController::class);
     Route::resource('blog', BlogController::class);
+    Route::resource('agreement', AgreementTypeController::class);
+    Route::resource('agreement-procedure', AgreementProcedureController::class);
 
 });

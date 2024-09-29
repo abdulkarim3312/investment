@@ -14,7 +14,7 @@ class AuthController extends Controller
 {
     public function admin(){
 
-        if (!empty(session()->get('authId'))) {
+        if(!empty(session()->get('authId'))) {
             return redirect('/dashboard');
         }else{
             return view('backend.auth.login');

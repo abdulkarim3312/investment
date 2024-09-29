@@ -40,8 +40,8 @@
                             <div class="service-block_one-icon">
                                 <img src="{{ isset($service->icon_image) ? asset('upload/service_image/'. $service->icon_image) : null }}" alt="" />
                             </div>
-                            <h4 class="service-block_one-heading"><a href="service-detail.html">{{ $service->title ?? '' }}</a></h4>
-                            <div class="service-block_one-text">{{ $service->short_description ?? '' }}</div>
+                            <h4 class="service-block_one-heading"><a href="{{ route('service_details', $service->slug) }}">{{ $service->title ?? '' }}</a></h4>
+                            <div class="service-block_one-text">{{ Str::substr($service->short_description, 0, 125) }}...</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
                                 <a class="service-block_one-more" href="{{ route('service_details', $service->slug) }}">Explore more <i class="flaticon-arrow"></i></a>
                                 <div class="service-block_one-number">01</div>

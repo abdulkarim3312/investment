@@ -4,6 +4,8 @@ namespace App\Http\Controllers\frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\AgreementProcedure;
+use App\Models\AgreementType;
 use App\Models\ContactUs;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -27,6 +29,12 @@ class HomePageController extends Controller
         $teams = DB::table('teams')->get();
         $aboutUs = DB::table('about_us')->first();
         return view('frontend.pages.about_us', compact('teams','aboutUs'));
+    }
+
+    public function agreementProcedure($typeId) {
+        $typeId = decrypt($typeId);
+        $agreement = AgreementProcedure::with('category')->where('type_id',$typeId)->first();
+        return view('frontend.pages.agreement_procedure', compact('agreement'));
     }
 
     public function contact() {

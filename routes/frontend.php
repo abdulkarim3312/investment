@@ -9,6 +9,7 @@ use App\Http\Controllers\frontend\HomePageController;
 
 Route::get('/', [HomePageController::class,'home'])->name('home');
 Route::get('/about-page', [HomePageController::class,'aboutUs'])->name('about_page');
+Route::get('/agreement/procedure/{typeId}', [HomePageController::class,'agreementProcedure'])->name('agreement_procedure');
 Route::get('/service', [HomePageController::class,'servicePage'])->name('service_page');
 Route::get('/service/details/{slug}', [HomePageController::class,'serviceDetailsPage'])->name('service_details');
 Route::get('/projects', [HomePageController::class,'projectPage'])->name('project_page');

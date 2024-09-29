@@ -45,8 +45,8 @@
                                     <i class="flaticon-share-2"></i>
                                 </div>
                             </div>
-                            <h4 class="news-block_two-heading"><a href="news-detail.html">{{ $blog->title ?? '' }}</a></h4>
-                            <div class="news-block_two-text">{{ $blog->short_description ?? '' }}</div>
+                            <h4 class="news-block_two-heading"><a href="{{ route('blog_details', $blog->slug) }}">{{ $blog->title ?? '' }}</a></h4>
+                            <div class="news-block_two-text">{{ Str::substr($blog->short_description, 0, 135) }}...</div>
                             <div class="d-flex justify-content-between align-items-center flex-wrap">
                                 <span>Post By:</span>
                                     <b>{{ $blog->user_name ?? '' }}</b>

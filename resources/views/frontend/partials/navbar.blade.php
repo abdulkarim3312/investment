@@ -1,5 +1,8 @@
-<header class="main-header header-style-one">
+@php
+    $type = App\Models\AgreementType::where('status', 1)->get();
+@endphp
 
+<header class="main-header header-style-one">
     <!-- Header Top -->
     <div class="header-top">
         <div class="auto-container">
@@ -54,6 +57,13 @@
                                     <li><a href="{{ route('home') }}">Home</a>
                                     </li>
                                     <li><a href="{{ route('about_page') }}">About us</a>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Agreement Procedure</a>
+                                        <ul>
+                                            @foreach ($type as $item)
+                                                <li><a href="{{ route('agreement_procedure', encrypt($item->id)) }}">{{ $item->name ?? '' }}</a></li>
+                                            @endforeach
+                                        </ul>
                                     </li>
                                     <li><a href="{{ route('service_page') }}">service</a>
                                     </li>
